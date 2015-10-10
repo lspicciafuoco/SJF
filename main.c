@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 3
+#define N 4
 /*
  * 
  */
@@ -8,7 +8,7 @@
 void ordina(int vet[], int n);
 
 int main(int argc, char** argv) {
-    int i;
+    int i=0;
     int vet[N];
     float accumulatore;
     float tempoMedio=0;
@@ -20,6 +20,8 @@ int main(int argc, char** argv) {
         i++;
     }
    
+    ordina(vet, N);
+    
             i = 1;
             while(i < N){
                 tempoMedio = tempoMedio + vet[i-1]; 
@@ -33,22 +35,18 @@ int main(int argc, char** argv) {
 }
 
 void ordina(int vet[], int n){ 
- int  j, num;
-    int v[N];
-    int i=0;
-   
-   
-    for(i = 1; i < N; i++) { 
-        for(j = i; j > 0 && v[j-1] > num; j--) {
-            v[j] = v[j-1];
+  int i,j,scambio;
+    
+    for(i=0;i<n-1;i++){
+        
+        for(j = 0; j < (n - 1 - i); j++){
+            if(vet[j]>vet[j+1]){
+                
+        scambio=vet[j];
+        vet[j]=vet[j+1];
+        vet[j+1]=scambio;
+            }
         }
-        v[j] = num;
     }
-    
-    printf("Algoritmo ordinato: \n");
-    for(i = 0; i < N; i++) {
-    printf("%d ", v[i]);
-    }
-    
 }
 
